@@ -12,7 +12,9 @@ A lightweight World of Warcraft TBC Classic addon that enhances tooltips for her
 
 ## What It Looks Like
  
-When you hover over a node you **can** gather: Coming Soon
+When you hover over a node you **can** gather:
+  
+![Can gather](screenshots/tooltip_can_gather.png)
 
 ## Installation
  
