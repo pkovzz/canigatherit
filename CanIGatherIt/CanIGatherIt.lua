@@ -171,7 +171,7 @@ local function AddGatherInfo(tooltip, name)
     )
 
     if canGather then
-        tooltip:AddLine("You CAN gather this.", 0.25, 1.0, 0.25)
+        tooltip:AddLine("You CAN gather this!", 0.25, 1.0, 0.25)
     else
         local deficit = data.skill - playerSkill
         tooltip:AddLine("Need " .. deficit .. " more skill to gather.", 1.0, 0.2, 0.2)
