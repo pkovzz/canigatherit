@@ -211,6 +211,7 @@ local function TryAddGatherInfo()
             or ownerName:match("TradeFrame")
             or ownerName:match("MerchantFrame")
             or ownerName:match("LootFrame")
+            or ownerName:match("LootButton")
             or ownerName:match("GuildBank")
             or ownerName:match("InboxFrame") then
             return
