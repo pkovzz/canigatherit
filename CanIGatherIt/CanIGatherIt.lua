@@ -171,7 +171,7 @@ local function AddGatherInfo(tooltip, name)
     )
 
     if canGather then
-        tooltip:AddLine("You CAN gather this!", 0.25, 1.0, 0.25)
+        tooltip:AddLine("You CAN gather this.", 0.25, 1.0, 0.25)
     else
         local deficit = data.skill - playerSkill
         tooltip:AddLine("Need " .. deficit .. " more skill to gather.", 1.0, 0.2, 0.2)
@@ -198,6 +198,25 @@ end)
 
 -- Core function that checks if we need to (re-)add gather info
 local function TryAddGatherInfo()
+    -- Only process tooltips from world objects and minimap, not inventory items
+    local owner = GameTooltip:GetOwner()
+    if owner then
+        local ownerName = owner:GetName() or ""
+        -- Skip bag slots, bank slots, mail, AH, trade, merchant, loot frames
+        if ownerName:match("ContainerFrame")
+            or ownerName:match("Character")
+            or ownerName:match("BankFrame")
+            or ownerName:match("MailFrame")
+            or ownerName:match("AuctionFrame")
+            or ownerName:match("TradeFrame")
+            or ownerName:match("MerchantFrame")
+            or ownerName:match("LootFrame")
+            or ownerName:match("GuildBank")
+            or ownerName:match("InboxFrame") then
+            return
+        end
+    end
+
     local text = GameTooltipTextLeft1 and GameTooltipTextLeft1:GetText()
     if not text or text == "" then return end
 
