@@ -275,13 +275,3 @@ SlashCmdList["CANIGATHERIT"] = function(msg)
         print("  Mining: Not learned")
     end
 end
-
--- ============================================================================
--- Load message
--- ============================================================================
-
-local frame = CreateFrame("Frame")
-frame:RegisterEvent("PLAYER_LOGIN")
-frame:SetScript("OnEvent", function(self, event)
-    print("|cff00ff00[CanIGatherIt]|r v1.0.0 loaded. Type /cigi to check your skills.")
-end)
