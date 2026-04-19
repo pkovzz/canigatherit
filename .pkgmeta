@@ -1,0 +1,6 @@
+package-as: CanIGatherIt
+
+ignore:
+  - README.md
+  - LICENSE
+  - screenshots
