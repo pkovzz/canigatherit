@@ -2,7 +2,8 @@
 ## Title: Can I Gather It?
 ## Notes: Shows whether you can gather a herb or mineral based on your profession skill level.
 ## Author: Peter
-## Version: 1.0.1
+## Version: @project-version@
+## IconTexture: Interface\Icons\Trade_Herbalism
 ## SavedVariables: CanIGatherItDB
 
 CanIGatherIt.lua
