@@ -198,22 +198,13 @@ end)
 
 -- Core function that checks if we need to (re-)add gather info
 local function TryAddGatherInfo()
-    -- Only process tooltips from world objects and minimap, not inventory items
+    -- Only process tooltips from world objects and minimap
+    -- World 3D objects: tooltip owner is usually UIParent or nil
+    -- Minimap tracking dots: tooltip owner is Minimap
     local owner = GameTooltip:GetOwner()
     if owner then
         local ownerName = owner:GetName() or ""
-        -- Skip bag slots, bank slots, mail, AH, trade, merchant, loot frames
-        if ownerName:match("ContainerFrame")
-            or ownerName:match("Character")
-            or ownerName:match("BankFrame")
-            or ownerName:match("MailFrame")
-            or ownerName:match("AuctionFrame")
-            or ownerName:match("TradeFrame")
-            or ownerName:match("MerchantFrame")
-            or ownerName:match("LootFrame")
-            or ownerName:match("LootButton")
-            or ownerName:match("GuildBank")
-            or ownerName:match("InboxFrame") then
+        if ownerName ~= "UIParent" and ownerName ~= "Minimap" then
             return
         end
     end
